@@ -8,34 +8,32 @@ var bodyParser = require("body-parser")
 var swStatus = 0;
 
 
-app.set('port',(process.env.PORT) || 3000)
+app.set('port',(process.env.PORT) || 5000);
 
 /// check out:  https://scotch.io/tutorials/use-expressjs-to-get-url-and-post-parameters
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({extended: true})); // support encoded bodies
 
 
+router.get("/",function(req,res){
+  console.log("---getting switch.html");	
+  res.sendFile(path + "switch.html");
+});
 
 router.get("/switch",function(req,res){
   console.log("---getting switch.html");	
   res.sendFile(path + "switch.html");
 });
 
-router.get("/switch:status", function(req,res){
-	swStatus=req.param('status');
 
-	console.log("===switch flipped---",swStatus);
-});
-
-router.post("/switch:status", function(req,res){
-	swStatus=req.body.status;
-	console.log("===POST switch flipped---",swStatus);
-	res.end();
-});
-
+//router.post("/switch:status", function(req,res){
+//	swStatus=req.body.status;
+//	console.log("===POST switch flipped---",swStatus);
+//	res.end();
+//});
+//
 
 router.get("/swStatus",function(req,res) {
-	//res.send(swStatus);
 	res.json({"Switch":swStatus})
 });
 
@@ -48,7 +46,7 @@ router.post("/switch",function(req,res){
 	 	tmptxt = "OFF"; 
 	 else 
 	 	tmptxt = "ON";
-	 console.log("Post : Switch is ",tmptxt);
+	 console.log("Switch is ",tmptxt);
 	 res.end();
 });
 app.use("/",router);
