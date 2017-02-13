@@ -15,6 +15,8 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -30,19 +32,29 @@ $(document).ready(function(){
         $("#switch").text(swtxt);
         $.post("/switch",{swval:sw});
     });
+    $("#toggle-two").change(function(){
+    	// flip switch
+    	sw = sw ? 0 : 1;
+    	$.post("/switch",{swval:sw});
+    });
 });
 </script>
+
+<script>
+		$(function() {
+			$('#toggle-two').bootstrapToggle({
+			      on: 'Reading',
+			      off: 'Disabled'
+			});
+		});
+</script>
+
 </head>
 <body>
 
 <div class="container">
 	<div class="row">
-		<div class="col-sm-12">
-		<p></p>
-		<p></p>
-		<p></p>
-		<p></p>
-		</div>
+		
 
 	</div>
 	<div class="row">
@@ -50,7 +62,9 @@ $(document).ready(function(){
 		<div class="col-sm-4" style="text-align: center;">
 			<button id="switch" class="btn btn-default btn-info btn-lg"><font size=7>READY</font></button>
 		</div>
-		<div class="col-sm-1"></div>
+		<div class="col-sm-4" style="text-align: center;">
+			<input type="checkbox" id="toggle-two">
+		</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-12"></div>
