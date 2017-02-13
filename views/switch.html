@@ -1,8 +1,22 @@
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8" >
+<!--to ensure proper rendering and touch zooming om mobiles/tabs  -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
 $(document).ready(function(){
     var swtxt = "OFF";
     var swlink="/switch"
@@ -20,7 +34,29 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<button id="switch" style="height:200px;width:200px"><font size=7>READY</font></button>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		</div>
+
+	</div>
+	<div class="row">
+		<div class="col-sm-4"></div>
+		<div class="col-sm-4" style="text-align: center;">
+			<button id="switch" class="btn btn-default btn-info btn-lg"><font size=7>READY</font></button>
+		</div>
+		<div class="col-sm-1"></div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12"></div>
+	</div>
+</div>
+
 </body>
 </html>
 

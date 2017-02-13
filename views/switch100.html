@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    var swtxt = "OFF";
+    var swlink="/switch"
+    var sw = 0;
+    $("#switch").text(swtxt);
+    $("#switch").click(function(){
+        // flip switch
+        sw = sw ? 0 : 1
+        swtxt = sw ? 'ON' : 'OFF'
+        // update button label
+        $("#switch").text(swtxt);
+        $.post("/switch",{swval:sw});
+    });
+});
+</script>
+</head>
+<body>
+<button id="switch" style="height:200px;width:200px"><font size=7>READY</font></button>
+</body>
+</html>
+
